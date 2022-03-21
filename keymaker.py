@@ -46,8 +46,11 @@ def zig_zag_concatenate(matrix):
     >>> zig_zag_concatenate(['abc', 'def', 'ghi', 'jkl'])
     'adgjkhebcfil'
     """
-    pass
-
+    row1 = [row[0] for row in matrix]
+    row2 = [row[1] for row in matrix[::-1]]
+    row3 = [row[2] for row in matrix]
+    return "".join(row1 + row2 + row3)
+    
 
 def rotate_right(word, n):
     """
