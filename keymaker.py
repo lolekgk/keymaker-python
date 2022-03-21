@@ -35,8 +35,11 @@ def create_matrix(word1, word2):
     >>> create_matrix('mamas', 'papas')
     ['bpbph', 'mamas', 'bpbph', 'mamas', 'esesk']
     """
-    pass
-
+    matrix = []
+    for i in range(len(word2)):
+        matrix.append(shift_characters(word1, ord(word2[i])-97))
+    return matrix
+        
 
 def zig_zag_concatenate(matrix):
     """
