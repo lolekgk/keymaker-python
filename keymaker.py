@@ -2,11 +2,6 @@ def shift_characters(word, shift):
     """
     >>> shift_characters('abby', 5)
     'fggd'
-
-    * iteracja przez kazda litere, zamiana litery na przesunieta,
-    * dodanie zamienionej litery do zmiennej string
-    ** jak sprawić by zaczęło zakres od nowa
-
     """
     shifted_char_list = [chr((ord(char) - 97) % 26 + 97) for char in word]
     return "".join(shifted_char_list)
