@@ -2,8 +2,14 @@ def shift_characters(word, shift):
     """
     >>> shift_characters('abby', 5)
     'fggd'
+
+    * iteracja przez kazda litere, zamiana litery na przesunieta,
+    * dodanie zamienionej litery do zmiennej string
+    ** jak sprawić by zaczęło zakres od nowa
+
     """
-    pass
+    shifted_char_list = [chr((ord(char) - 97) % 26 + 97) for char in word]
+    return "".join(shifted_char_list)
 
 
 def pad_up_to(word, shift, n):
@@ -84,6 +90,6 @@ def hash_it(word):
     return key
 
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
     name = input("Enter your name! ").lower()
     print(f'Your key: {hash_it(name)}')
