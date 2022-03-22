@@ -45,8 +45,6 @@ def zig_zag_concatenate(matrix):
     """
     >>> zig_zag_concatenate(['abc', 'def', 'ghi', 'jkl'])
     'adgjkhebcfil'
-    * dla prarzystych i matrix
-    * dla nieparzystych i matrix[::-1]
     """
     result = []
     for i in range(len(matrix[0])):
@@ -62,7 +60,13 @@ def rotate_right(word, n):
     >>> rotate_right('abcdefgh', 3)
     'fghabcde'
     """
-    pass
+    if n >= 0:
+        for num in range(n):
+            word = word[-1] + word[:-1]
+    else:
+        for num in range(-n): 
+            word = word[1:] + word[0]
+    return word
 
 
 def get_square_index_chars(word):
