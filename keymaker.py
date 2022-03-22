@@ -83,7 +83,8 @@ def remove_odd_blocks(word, block_length):
     >>> remove_odd_blocks('abcdefghijklm', 3)
     'abcghim'
     """
-    pass
+    blocks = [word[i:i+block_length] for i in range(0, len(word), block_length)]
+    return "".join([blocks[i] for i in range(0, len(blocks), 2)])
 
 
 def reduce_to_fixed(word, n):
