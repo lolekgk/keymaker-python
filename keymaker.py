@@ -45,13 +45,18 @@ def zig_zag_concatenate(matrix):
     """
     >>> zig_zag_concatenate(['abc', 'def', 'ghi', 'jkl'])
     'adgjkhebcfil'
+    * dla prarzystych i matrix
+    * dla nieparzystych i matrix[::-1]
     """
-    row1 = [row[0] for row in matrix]
-    row2 = [row[1] for row in matrix[::-1]]
-    row3 = [row[2] for row in matrix]
-    return "".join(row1 + row2 + row3)
-    
+    result = []
+    for i in range(len(matrix[0])):
+        if i % 2 == 0:
+            result.extend([row[i] for row in matrix])
+        else:
+            result.extend([row[i] for row in matrix[::-1]])
+    return "".join(result)
 
+    
 def rotate_right(word, n):
     """
     >>> rotate_right('abcdefgh', 3)
