@@ -75,7 +75,7 @@ def get_square_index_chars(word):
     'abej'
     """
     last_index = len(word)
-    return "".join([word[i**2] for i in range(last_index) if i**2 <= last_index])
+    return "".join([word[i**2] for i in range(last_index) if i**2 < last_index])
     
 
 def remove_odd_blocks(word, block_length):
@@ -92,7 +92,10 @@ def reduce_to_fixed(word, n):
     >>> reduce_to_fixed('abcdefghijklm', 6)
     'bafedc'
     """
-    pass
+    word = word[:n]
+    for num in range(n//3):
+        word = word[1:] + word[0]
+    return "".join(word[::-1])
 
 
 def hash_it(word):
@@ -109,6 +112,6 @@ def hash_it(word):
     return key
 
 
-#if __name__ == '__main__':
+if __name__ == '__main__':
     name = input("Enter your name! ").lower()
     print(f'Your key: {hash_it(name)}')
