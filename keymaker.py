@@ -74,8 +74,9 @@ def get_square_index_chars(word):
     >>> get_square_index_chars('abcdefghijklm')
     'abej'
     """
-    pass
-
+    last_index = len(word)
+    return "".join([word[i**2] for i in range(last_index) if i**2 <= last_index])
+    
 
 def remove_odd_blocks(word, block_length):
     """
